@@ -90,6 +90,9 @@ const HorizontalScrollSection = () => {
 
   return (
     <section ref={sectionRef} className="relative h-[300vh] bg-white">
+      <div className="absolute flex item-center justify-center top-0 left-0 w-full">
+        <h3 className="text-3xl font-sans">Shop Categories</h3>
+      </div>
       {/* Sticky Wrapper */}
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div
@@ -99,7 +102,7 @@ const HorizontalScrollSection = () => {
           {items.map((item) => (
             <div
               key={item.id}
-              className="relative h-[500px] w-[350px] shrink-0 overflow-hidden rounded-3xl"
+              className="relative h-125 w-87.5 shrink-0 overflow-hidden "
             >
               {/* Image */}
               <img
