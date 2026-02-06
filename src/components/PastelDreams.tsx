@@ -48,6 +48,13 @@ export default function PastelDreams() {
     offset: ["start end", "start start"],
   });
 
+  const textY = useTransform(scrollYProgress, [0, 1], [100, -10]);
+  const textOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 1, 1, 0],
+  );
+
   // Animations
   const y = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
@@ -65,12 +72,17 @@ export default function PastelDreams() {
       className="relative z-20 bg-white py-11"
     >
       {/* Title */}
-      <div className="mb-10 text-center">
-        <h2 className="text-4xl font-poppins text-black">Pastel Dreams</h2>
-        <p className="mt-3 text-sm text-gray-500">
+      <motion.div
+        className="mb-10 text-center"
+        style={{ y: textY, opacity: textOpacity }}
+      >
+        <motion.h2 className="text-4xl font-poppins text-black">
+          Pastel Dreams
+        </motion.h2>
+        <motion.p className="mt-3 text-sm text-gray-500">
           Soft hues, bold styles — embrace the pastel aesthetic.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Products */}
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
